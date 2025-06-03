@@ -64,8 +64,8 @@ body::after {
     background: var(--dark-purple);
     transform: skew(0, -8deg);
     transform-origin: top left;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 20px 20px -20px;
 }
-
 /* Typography */
 
 h1, h2, h3 {
@@ -107,16 +107,31 @@ p {
     max-width: 640px;
 }
 
+img[src$=".svg"] {
+    transition: filter 100ms ease-in-out;
+}
+
+img[src$=".svg"]:hover {
+    filter: brightness(0) saturate(100%) invert(73%) sepia(66%) saturate(497%) hue-rotate(138deg) brightness(87%) contrast(90%);
+}
+
+img[src$=".svg"]:active {
+    filter: brightness(0) saturate(100%) invert(53%) sepia(20%) saturate(1229%) hue-rotate(137deg) brightness(96%) contrast(97%);
+    transition: none;
+}
+
 /* Main Sections */
 
 main {
     margin: 0 auto;
     max-width: var(--max-content);
-    padding: 4rem 2rem;
+    padding: 4rem 2rem 8rem;
 }
 
 footer {
     background-color: var(--white);
+        box-shadow: rgba(0, 0, 0, 0.45) 0px 20px 20px 10px;
+
 }
 
 /* Hero Section */
@@ -133,16 +148,22 @@ footer {
 
 .profile-picture > img {
     border: 0.5rem solid var(--white);
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
 }
 
 .hero-text {
     background-color: var(--white);
     padding: 3rem 2rem 2rem;
     flex: 1;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
 }
 
 .hero-text > h2 {
     font-size: 2.25rem;
+}
+
+.hero-text > p {
+    margin-bottom: 1rem;
 }
 
 /* Portfolio Section */
@@ -157,6 +178,19 @@ footer {
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
     gap: 2rem;
+}
+
+.portfolio-work {
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    transition: transform 100ms ease-out;
+}
+
+.portfolio-work:hover {
+    transform: scale(1.025);
+}
+
+.portfolio-work:active {
+    filter: brightness(95%);
 }
 
 .portfolio-info,
@@ -184,7 +218,7 @@ footer {
     align-items: center;
     gap: 2rem;
     min-width: calc(var(--min-content) + 4rem);
-    max-width: 1400px;
+    max-width: 1500px;
     margin: 0 auto;
 }
 
@@ -203,6 +237,7 @@ footer {
 }
 .email {
     margin-bottom: 2rem;
+    text-decoration: underline;
 }
 
 /* Icons */
@@ -222,11 +257,19 @@ footer {
     width: 32px;
 }
 
+.mailing-address img:hover {
+    filter: none;
+}
+
 .tel,
 .email {
     display: flex;
     align-items: center;
     gap: 8px;
+}
+
+.email > a:hover {
+    filter: brightness(0) saturate(100%) invert(53%) sepia(20%) saturate(1229%) hue-rotate(137deg) brightness(96%) contrast(97%);
 }
 
 /* Media Queries */
